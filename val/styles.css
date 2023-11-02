@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap'); /* importing custom font */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('val.png'); /* Replace with your image path */
+    background-size: cover;
+    font-family: 'Lovers Quarrel', cursive; /* using custom font */
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    gap: 5px;
+    background-image: url('board.png'); /* Replace with your image path */
+    background-size: cover;
+
+    border: 2px solid #ffcccc;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 223, 220, 0.8); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.cell:hover {
+    background-color: rgba(255, 205, 200, 0.8);
+}
+
+/* For the ❤️ and 💋 emojis */
+.cell > .heart {
+    color: red;
+    font-size: 30px;
+    transition: transform 0.2s ease; /* Bounce effect on hover */
+}
+
+.cell > .kiss {
+    color: pink;
+    font-size: 30px;
+    transition: transform 0.2s ease;
+}
+
+.cell:hover > .heart {
+    transform: scale(1.1); /* Bounce effect */
+}
+
+.cell:hover > .kiss {
+    transform: scale(1.1);
+}

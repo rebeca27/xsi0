@@ -1,0 +1,172 @@
+/* Base reset */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #1a1a1a;
+    color: #ccc;
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+/* Utility classes for animations */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Grid system */
+.theme-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.theme-selector a {
+    text-decoration: none;
+    background: #333;
+    color: #fff;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+/* Hover effects */
+.theme-selector a:before,
+.theme-selector a:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    z-index: 0;
+    transition: all 0.75s ease;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.theme-selector a:hover:before,
+.theme-selector a:hover:after {
+    width: 300%;
+    height: 300%;
+}
+
+.theme-selector a:after {
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition-delay: 0.25s;
+}
+
+.theme-selector a:hover {
+    border-color: #fff;
+    transform: scale(0.95);
+}
+
+/* Animation for link content */
+.theme-selector a div {
+    position: relative;
+    z-index: 2;
+    transition: transform 0.5s ease;
+}
+
+.theme-selector a:hover div {
+    transform: scale(0.9);
+}
+
+/* Responsive design */
+@media only screen and (max-width: 768px) {
+    .theme-selector {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .theme-selector a {
+        height: 180px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Further responsive adjustments */
+@media only screen and (max-width: 480px) {
+    .theme-selector {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Fancy border animations */
+.theme-selector a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #fff;
+    animation: borderAnim 2s infinite linear;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.theme-selector a:hover::before {
+    opacity: 1;
+}
+
+@keyframes borderAnim {
+    0% {
+        transform: scale(1);
+        rotate(0);
+    }
+    50% {
+        transform: scale(1.1);
+        rotate(180deg);
+    }
+    100% {
+        transform: scale(1);
+        rotate(360deg);
+    }
+}
